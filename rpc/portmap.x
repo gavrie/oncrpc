@@ -11,6 +11,18 @@ struct mapping {
        unsigned int port;
 };
 
+const IPPROTO_TCP = 6;      /* protocol number for TCP/IP */
+const IPPROTO_UDP = 17;     /* protocol number for UDP/IP */
+
+struct pmaplist {
+    mapping map;
+    pmaplist *next;
+};
+
+struct dump_result {
+    pmaplist *next;
+};
+
 struct call_args {
        unsigned int prog;
        unsigned int vers;
@@ -18,20 +30,18 @@ struct call_args {
        opaque args<>;
 };
 
+struct call_result {
+    unsigned int port;
+    opaque res<>;
+};
 
-program PMAP_PROGRAM {
-	version PMAP_V2 {
-        	void
-		PMAP_NULL(void)         = 0;
-
-		bool
-            	PMAP_SET(mapping)       = 1;
-
-            	bool
-            	PMAP_UNSET(mapping)     = 2;
-
-            	unsigned int
-            	PMAP_GETPORT(mapping)   = 3;
-	} = 2;
+program PMAP {
+     version V2 {
+        void NULL(void)               = 0;
+        bool SET(mapping)             = 1;
+        bool UNSET(mapping)           = 2;
+        unsigned int GETPORT(mapping) = 3;
+        dump_result DUMP(void)        = 4;
+        call_result CALLIT(call_args) = 5;
+     } = 2;
 } = 100000;
-
