@@ -3,8 +3,10 @@
  */
 
 const PMAP_PORT = 111;      /* portmapper port number */
+/* const FOOBAR = TRUE; */
 
 struct mapping {
+       /* int foobar; */
        unsigned int prog;
        unsigned int vers;
        unsigned int prot;
@@ -35,6 +37,7 @@ struct call_result {
     opaque res<>;
 };
 
+/*
 program PMAP {
      version V2 {
         void NULL(void)               = 0;
@@ -45,3 +48,4 @@ program PMAP {
         call_result CALLIT(call_args) = 5;
      } = 2;
 } = 100000;
+*/

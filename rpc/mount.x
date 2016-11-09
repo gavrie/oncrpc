@@ -49,6 +49,7 @@ struct exportnode {
 
 struct mountres3_ok {
 	fhandle3   fhandle;
+	int        sized_auth_flavors<7>;
 	int        auth_flavors<>;
 };
 
