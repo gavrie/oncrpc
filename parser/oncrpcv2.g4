@@ -1,5 +1,5 @@
-grammar oncrpcv2;
-import xdr;
+grammar ONCRPCv2;
+import XDR;
 
 //oncrpcv2 additions on top of xdr (rfc 5531)
 programDef: 'program' IDENTIFIER '{'
