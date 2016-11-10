@@ -12,6 +12,13 @@ For example, to create a complete Go encoder and decoder for the NFSv3 protocol,
 
 The implementation leverages the Go type system to create code that is statically typed. This makes the code efficient (no reflection is used). More importantly, it allows writing typesafe code that detects errors at compile time rather than at run time.
 
+## Planned Tasks
+
+1. Implement decoding (partially complete)
+1. Add tests
+1. Replace `go-xdr` with native functions based on `encoding/binary`
+1. Implement an NFSv3 client
+
 ## References
 
 - [davecgh/go-xdr](https://github.com/davecgh/go-xdr): Implements the data representation part of RFC 4506.
